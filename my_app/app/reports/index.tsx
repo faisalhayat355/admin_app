@@ -25,6 +25,7 @@ import GridViewComponent from "./list/grid.view";
 import ListComponent from "./list/list.component";
 import ReportViewsComponent from "./views";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import KanbanComponent from "./list/kanban.component";
 
 const useStyles = makeStyles({
   customTextField: {
@@ -317,7 +318,7 @@ const CreateHome = () => {
             <GraphView users={users} />
           </Case>
           <Case condition={viewType === ViewTypes.KANBAN}>
-            {/* <CustomerKanbanView customer={copyCustomer} /> */}
+            <KanbanComponent users={users} />
           </Case>
           <Case condition={viewType === ViewTypes.CALENDAR}>
             <CalendarView users={users} />

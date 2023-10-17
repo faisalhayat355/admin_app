@@ -5,9 +5,9 @@ import { Box, Grid, IconButton, Pagination, Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import ReportsInfo from "../info/info.component";
-import { PaginationHandler } from "@/app/utility/pagination";
+import { PaginationHandler } from "../../utility/pagination";
 
-const ListComponent = ({ users }:any) => {
+const ListComponent = ({ users }: any) => {
   let [page, setPage] = useState(1);
   const PER_PAGE = 8;
   const count = Math.ceil(users.length / PER_PAGE);
@@ -19,7 +19,7 @@ const ListComponent = ({ users }:any) => {
   };
 
   return (
-    <div style={{paddingLeft:'1.5rem'}}>
+    <div style={{ paddingLeft: "1.5rem" }}>
       <Box mr={3} mt={2}>
         <Paper variant="outlined">
           <Grid container>
@@ -94,7 +94,7 @@ const ListComponent = ({ users }:any) => {
         {paginationHandler
           .currentData()
           // .reverse()
-          ?.map((items:any) => {
+          ?.map((items: any) => {
             return (
               <Typography key={items.id}>
                 <ReportsInfo items={items} />

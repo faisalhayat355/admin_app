@@ -10,9 +10,14 @@ export const theme = createTheme({
     },
     subtitle2: {
       fontSize: 12,
-      fontWeight: 600,
+      fontWeight: 550,
       color: "#1e293b",
       marginTop: "0.6rem",
+    },
+    subtitle3: {
+      fontSize: 12,
+      fontWeight: 550,
+      color: "#1e293b",
     },
     h6: {
       fontWeight: 700,
