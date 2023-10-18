@@ -1,9 +1,5 @@
-import React from 'react'
+import { Grid, Paper } from "@mui/material/";
 import Box from "@mui/material/Box";
-import { Card, Grid } from "@mui/material/";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 
@@ -13,7 +9,7 @@ const CardComponent = () => {
        <Box style={{ margin: "1rem" }}>
         <Grid container spacing={1}>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -42,10 +38,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -74,10 +70,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -106,10 +102,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -138,10 +134,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -170,10 +166,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -202,7 +198,7 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
         </Grid>
       </Box>
@@ -210,7 +206,7 @@ const CardComponent = () => {
       <Box style={{ margin: "1rem" }}>
         <Grid container spacing={1}>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -239,10 +235,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -271,10 +267,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -303,10 +299,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -335,10 +331,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -367,10 +363,10 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Card>
+            <Paper elevation={0} style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",}}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -399,7 +395,7 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
               </Grid>
-            </Card>
+            </Paper>
           </Grid>
         </Grid>
       </Box>

@@ -12,7 +12,7 @@ const Logo = ({ handleMenu, show }: logoProps) => {
       {show && (
         <Grid textAlign={"left"} pt={1}
           display={{ xs: "none", sm: "none", md: "block" }}>
-          <img src="./images/faisallogo1.png" alt="logo icon crashed"
+          <img src="./images/alchemylogo.jpg" alt="logo icon crashed"
             style={{ height: "80%", width: "100%", marginLeft: "-0.9em"  }} />
         </Grid>
       )}

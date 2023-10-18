@@ -1,15 +1,25 @@
 "use client";
-import React from "react";
-import { Chart } from "react-google-charts";
 import { Card, Grid } from "@mui/material/";
+import { Chart } from "react-google-charts";
+// import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 
 export const data = [
   ["Year", "Sales", "Expenses", "Profit"],
-  ["2014", 1000, 400, 200],
-  ["2015", 1170, 460, 250],
-  ["2016", 660, 1120, 300],
-  ["2017", 1030, 540, 350],
+  ["2014", 5000, 1840, 1200],
+  ["2015", 4170, 1460, 2150],
+  ["2016", 3370, 2120, 2300],
+  ["2017", 4912, 2344, 1710],
 ];
+export const mapdata = [
+  ["Country", "Popularity"],
+  ["Germany", 200],
+  ["United States", 300],
+  ["Brazil", 400],
+  ["Canada", 500],
+  ["France", 600],
+  ["RU", 700],
+];
+
 export const options = {
   chart: {
     title: "Company Performance",
@@ -27,8 +37,15 @@ export const data1 = [
 ];
 
 export const options1 = {
-  title: "My Daily Activities",
-  is3D: true,
+  title: "Population of Largest India",
+  chartArea: { width: "50%" },
+  hAxis: {
+    title: "Total Population",
+    minValue: 0,
+  },
+  vAxis: {
+    title: "City",
+  },
 };
 
 export const data3 = [
@@ -69,6 +86,13 @@ export const options3 = {
   },
 };
 const ChartComponent = () => {
+  const data01 = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 },
+  ];
+
   return (
     <div>
       <Grid container style={{ marginRight: "1rem" }}>
@@ -82,12 +106,31 @@ const ChartComponent = () => {
               border: "none",
             }}
           >
-            <Chart
+            {/* <Chart
               chartType="Bar"
               width="100%"
               height="267px"
               data={data}
               options={options}
+            /> */}
+
+            <Chart
+              chartEvents={[
+                {
+                  eventName: "select",
+                  callback: ({ chartWrapper }) => {
+                    const chart = chartWrapper.getChart();
+                    const selection = chart.getSelection();
+                    if (selection.length === 0) return;
+                    const region = mapdata[selection[0].row + 1];
+                    console.log("Selected : " + region);
+                  },
+                },
+              ]}
+              chartType="GeoChart"
+              width="100%"
+              height="268px"
+              data={mapdata}
             />
           </Card>
         </Grid>
@@ -100,13 +143,43 @@ const ChartComponent = () => {
                   border: "none",
                 }}
               >
-                <Chart
+                {/* <Chart
                   chartType="PieChart"
                   data={data1}
                   options={options1}
                   width={"100%"}
                   height={"300px"}
+                /> */}
+                <Chart
+                  chartType="BarChart"
+                  width="112%"
+                  height="300px"
+                  style={{ marginLeft: "-2rem" }}
+                  data={data}
+                  options={options1}
                 />
+                {/* <div width="100%" height="100%">
+                  <PieChart width={400} height={400}>
+                    <Pie
+                      data={data01}
+                      dataKey="value"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={60}
+                      fill="#8884d8"
+                    />
+                    <Pie
+                      data={data02}
+                      dataKey="value"
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={70}
+                      outerRadius={90}
+                      fill="#82ca9d"
+                      label
+                    />
+                  </PieChart>
+                </div> */}
               </Card>
             </Grid>
 

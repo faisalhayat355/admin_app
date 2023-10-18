@@ -19,16 +19,6 @@ export const options = {
   },
 };
 
-export const data1 = [
-  ["Country", "Popularity"],
-  ["Germany", 200],
-  ["United States", 300],
-  ["Brazil", 400],
-  ["Canada", 500],
-  ["France", 600],
-  ["RU", 700],
-];
-
 export const options1 = {
   title: "My Daily Activities",
   is3D: true,
@@ -108,7 +98,7 @@ const GraphView = () => {
               ]}
               chartType="GeoChart"
               width="100%"
-              height="268px"
+              height="368px"
               data={data}
             />
           </Card>
@@ -166,7 +156,7 @@ const GraphView = () => {
               data={data3}
               options={options3}
               width={"100%"}
-              height={"300px"}
+              height={"400px"}
             />
           </Card>
         </Grid>
