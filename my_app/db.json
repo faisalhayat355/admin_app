@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fname": "Faisal",
+      "lname": "Hayat",
+      "age": "22",
+      "city": "Saharsa",
+      "state": "Bihar",
+      "email": "hayatfaisal@gmail.com",
+      "address": "Sbpur",
+      "mobile": "7657653454"
+    },
+    {
+      "id": 2,
+      "fname": "Faisal",
+      "lname": "Hayat",
+      "age": "22",
+      "city": "Saharsa",
+      "state": "Bihar",
+      "email": "hayatfaisal@gmail.com",
+      "address": "Sbpur",
+      "mobile": "7657653454"
+    },
+    {
+      "id": 3,
+      "fname": "Faisal",
+      "lname": "Hayat",
+      "age": "22",
+      "city": "Saharsa",
+      "state": "Bihar",
+      "email": "hayatfaisal@gmail.com",
+      "address": "Sbpur",
+      "mobile": "7657653454"
+    },
+    {
+      "id": 4,
+      "fname": "Faisal",
+      "lname": "Hayat",
+      "age": "22",
+      "city": "Saharsa",
+      "state": "Bihar",
+      "email": "hayatfaisal@gmail.com",
+      "address": "Sbpur",
+      "mobile": "7657653454"
+    },
+    {
+      "id": 5,
+      "fname": "Faisal",
+      "lname": "Hayat",
+      "age": "22",
+      "city": "Saharsa",
+      "state": "Bihar",
+      "email": "hayatfaisal@gmail.com",
+      "address": "Sbpur",
+      "mobile": "7657653454"
+    }
+  ]
+}

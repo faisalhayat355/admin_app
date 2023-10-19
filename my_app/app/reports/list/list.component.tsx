@@ -35,10 +35,9 @@ const ListComponent = ({ users }: any) => {
                 </Grid>
               </Grid>
             </Grid>
-
             <Grid item xs={2}>
               <Typography variant="subtitle2" noWrap>
-                Company Name
+                Name
               </Typography>
             </Grid>
             <Grid item xs={2}>
@@ -47,54 +46,26 @@ const ListComponent = ({ users }: any) => {
               </Typography>
             </Grid>
             <Grid item xs={2}>
-              <Typography
-                variant="subtitle2"
-                noWrap
-                display={"flex"}
-                justifyContent={"space-around"}
-              >
+              <Typography variant="subtitle2"
+                noWrap display={"flex"} justifyContent={"space-around"}>
                 Contact
               </Typography>
             </Grid>
             <Grid item xs={2}>
-              <Typography
-                variant="subtitle2"
-                noWrap
-                display={"flex"}
-                justifyContent={"space-around"}
-              >
+              <Typography variant="subtitle2" noWrap display={"flex"} justifyContent={"space-around"}>
                 Address
               </Typography>
             </Grid>
             <Grid item xs={2}>
-              <Typography
-                variant="subtitle2"
-                display={"flex"}
-                justifyContent={"space-around"}
-                noWrap
-              >
+              <Typography variant="subtitle2" display={"flex"} justifyContent={"space-around"} noWrap>
                 Action
               </Typography>
             </Grid>
           </Grid>
         </Paper>
       </Box>
-
-      {/* <Grid>
-      {users.map((items) => {
-        return (
-            <Typography key={items.id}>
-              <ReportsInfo items={items} />
-            </Typography>
-        );
-      })}
-      </Grid> */}
-
       <Grid style={{ height: "55vh" }}>
-        {paginationHandler
-          .currentData()
-          // .reverse()
-          ?.map((items: any) => {
+        {paginationHandler.currentData().reverse() ?.map((items: any) => {
             return (
               <Typography key={items.id}>
                 <ReportsInfo items={items} />
@@ -102,18 +73,11 @@ const ListComponent = ({ users }: any) => {
             );
           })}
       </Grid>
-
       <Grid container mt={4}>
         <Grid item xs={11.75} display={"flex"} justifyContent={"flex-end"}>
           <Grid style={{ position: "fixed" }}></Grid>
-          <Pagination
-            count={count}
-            size="small"
-            page={page}
-            variant="outlined"
-            color="primary"
-            onChange={handleChangePage}
-          />
+          <Pagination count={count} size="small" page={page}
+            variant="outlined" color="primary" onChange={handleChangePage}/>
         </Grid>
       </Grid>
     </div>

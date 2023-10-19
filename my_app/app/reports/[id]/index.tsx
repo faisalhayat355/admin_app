@@ -1,36 +1,52 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import Link from "next/link";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ReportCreate = () => {
+const ReportEditComponent = () => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
+  const {id} = useParams();
+
   // const navigate = useNavigate();
-  const [inputData, setInputData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    address: "",
-  });
-  function handleSubmit(event:any) {
-    event.preventDefault();
-    axios
-      .post("http://localhost:3030/users", inputData)
-      .then((res) => {
-        alert("Data Submited Successfully");
-        // navigate("reports");
-      })
-      .catch((err) => console.log(err));
-  }
+  useEffect(() => {
+    axios.get("http://localhost:3030/users/"+ id)
+      .then((res) => setData(res.data))
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, []);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  axios.put('http://localhost:3030/users/'+id, data)
+    .then(res =>{
+      alert("Data Updated Successfully")
+      // navigate("/")
+    })
+    .catch((err) => console.log(err));
+}
+
+
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Paper elevation={0}
-          style={{boxShadow:"rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px",
-            padding: "3rem", marginRight: "1rem", marginLeft: "1rem", marginTop: "1rem",}}>
+        <Paper
+          elevation={0}
+          style={{
+            boxShadow:
+              "rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px",
+            padding: "3rem",
+            marginRight: "1rem",
+            marginLeft: "1rem",
+            marginTop: "1rem",
+          }}
+        >
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <Grid container style={{ display: "flex", alignItems: "center" }}>
@@ -41,9 +57,16 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic"
-                    placeholder="Enter your First Name" variant="outlined" size="small" fullWidth
-                    onChange={(e) => setInputData({ ...inputData, fname: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your First Name"
+                    variant="outlined"
+                    size="small"
+                    fullWidth value={data.name} 
+                    // onChange={(e) =>
+                    //   setInputData({ ...inputData, name: e.target.value })
+                    // }
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -56,8 +79,13 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic"placeholder="Enter your Last Name" variant="outlined" size="small"
-                    fullWidth onChange={(e) => setInputData({ ...inputData, lname: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your Last Name"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -71,9 +99,13 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic" placeholder="Enter your Age"
-                    variant="outlined" size="small" fullWidth onChange={(e) =>
-                      setInputData({ ...inputData, age: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your Age"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -87,9 +119,16 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic"
-                    placeholder="Enter your Email" variant="outlined" size="small" fullWidth
-                    onChange={(e) => setInputData({ ...inputData, email: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your Email"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                    // onChange={(e) =>
+                    //   setInputData({ ...inputData, email: e.target.value })
+                    // }
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -103,9 +142,16 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic" placeholder="Enter your Mobile Number"
-                    variant="outlined" size="small" fullWidth
-                    onChange={(e) => setInputData({ ...inputData, mobile: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your Mobile Number"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                    // onChange={(e) =>
+                    //   setInputData({ ...inputData, mobile: e.target.value })
+                    // }
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -119,9 +165,16 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic" placeholder="Enter your full Address"
-                    variant="outlined" size="small" fullWidth
-                    onChange={(e) => setInputData({ ...inputData, address: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your Age"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                    // onChange={(e) =>
+                    //   setInputData({ ...inputData, address: e.target.value })
+                    // }
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -135,9 +188,13 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic" placeholder="Enter your City"
-                    variant="outlined" size="small"fullWidth 
-                    onChange={(e) => setInputData({ ...inputData, city: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your City"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -151,9 +208,13 @@ const ReportCreate = () => {
                   <Typography>:</Typography>
                 </Grid>
                 <Grid item xs={7}>
-                  <TextField id="outlined-basic" placeholder="Enter your State"
-                    variant="outlined" size="small" fullWidth 
-                    onChange={(e) => setInputData({ ...inputData, state: e.target.value })}/>
+                  <TextField
+                    id="outlined-basic"
+                    placeholder="Enter your State"
+                    variant="outlined"
+                    size="small"
+                    fullWidth
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -162,13 +223,26 @@ const ReportCreate = () => {
           <Grid container mt={7}>
             <Grid item xs={8.55}></Grid>
             <Grid item xs={1.85}>
-              <Link href={"/reports"} passHref style={{ textDecoration: "none" }}>
+              <Link
+                href={"/reports"}
+                passHref
+                style={{ textDecoration: "none" }}
+              >
                 {/* <Button variant="contained" style={{ width: "125px" }}>
                   Cancel
                 </Button> */}
                 <button
-                  style={{ width: "125px",height: "37px",border: "none",background: "#2563eb",
-                    color: "white", borderRadius: "6px", fontSize: "1rem", cursor: "pointer", }}>
+                  style={{
+                    width: "125px",
+                    height: "37px",
+                    border: "none",
+                    background: "#2563eb",
+                    color: "white",
+                    borderRadius: "6px",
+                    fontSize: "1rem",
+                    cursor: "pointer",
+                  }}
+                >
                   Cancel
                 </button>
               </Link>
@@ -177,9 +251,19 @@ const ReportCreate = () => {
               {/* <Button variant="contained" style={{ width: "125px" }}>
               Save
             </Button> */}
+
               <button
-                style={{ width: "125px",height: "37px", border: "none",background: "#2563eb",
-                  color: "white",borderRadius: "6px", fontSize: "1rem",cursor: "pointer"}}>
+                style={{
+                  width: "125px",
+                  height: "37px",
+                  border: "none",
+                  background: "#2563eb",
+                  color: "white",
+                  borderRadius: "6px",
+                  fontSize: "1rem",
+                  cursor: "pointer",
+                }}
+              >
                 Save
               </button>
             </Grid>
@@ -187,7 +271,7 @@ const ReportCreate = () => {
         </Paper>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default ReportCreate;
+export default ReportEditComponent

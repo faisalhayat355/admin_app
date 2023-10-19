@@ -5,8 +5,6 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 
-
-
 const GridViewComponent = ({users}:any) => {
   let [page, setPage] = useState(1);
   const PER_PAGE = 9;
@@ -21,9 +19,7 @@ const GridViewComponent = ({users}:any) => {
     <div style={{paddingLeft:'1.5rem'}}>
     <Box style={{ height: "60.4vh" }} mr={3}>
       <Grid container spacing={2} mt={0.1}>
-        {paginationHandler
-        .currentData()
-        .reverse()?.map((item) => {
+        {paginationHandler.currentData().reverse()?.map((item) => {
             return (
               <Grid item xs={4} md={4} sm={4} lg={4} key={item.id}>
                 <Paper variant="outlined">
@@ -36,7 +32,7 @@ const GridViewComponent = ({users}:any) => {
                         <Typography> :</Typography>
                       </Grid>
                       <Grid item xs={6} paddingLeft={2}>
-                        <Typography noWrap variant="subtitle1">{item?.name}</Typography>
+                        <Typography noWrap variant="subtitle1">{item?.fname} {item?.lname}</Typography>
                       </Grid>
                     </Grid>
                   </Box>
@@ -63,11 +59,10 @@ const GridViewComponent = ({users}:any) => {
                         <Typography> :</Typography>
                       </Grid>
                       <Grid item xs={6} paddingLeft={2}>
-                        <Typography noWrap variant="subtitle1">{item?.phone}</Typography>
+                        <Typography noWrap variant="subtitle1">{item?.mobile}</Typography>
                       </Grid>
                     </Grid>
                   </Box>
-
                   <Box paddingLeft={2} paddingBottom={1}>
                     <Grid container>
                       <Grid item xs={5}>
@@ -77,11 +72,10 @@ const GridViewComponent = ({users}:any) => {
                         <Typography> :</Typography>
                       </Grid>
                       <Grid item xs={6} paddingLeft={2}>
-                        <Typography noWrap variant="subtitle1">{item?.address.city}</Typography>
+                        <Typography noWrap variant="subtitle1">{item?.address} {item?.city} {item?.state}</Typography>
                       </Grid>
                     </Grid>
                   </Box>
-
                 </Paper>
               </Grid>
             );
@@ -91,17 +85,10 @@ const GridViewComponent = ({users}:any) => {
     <Grid container mt={7}>
       <Grid item xs={11.77} display={"flex"} justifyContent={"flex-end"}>
         <Grid style={{ position: "fixed" }}>
-          <Pagination
-            count={count}
-            size="small"
-            page={page}
-            variant="outlined"
-            color="primary"
-            onChange={handleChangePage}
-          />
+          <Pagination count={count} size="small" page={page} variant="outlined" color="primary" 
+          onChange={handleChangePage}/>
         </Grid>
       </Grid>
-      {/* <Grid item xs={0.3}></Grid> */}
     </Grid>
   </div>
   )

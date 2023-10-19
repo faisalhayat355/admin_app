@@ -24,19 +24,19 @@ import GraphView from "./list/graph.view";
 import GridViewComponent from "./list/grid.view";
 import ListComponent from "./list/list.component";
 import ReportViewsComponent from "./views";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+// import makeStyles from "@material-ui/core/styles/makeStyles";
 import KanbanComponent from "./list/kanban.component";
 
-const useStyles = makeStyles({
-  customTextField: {
-    "& input::placeholder": {
-      fontSize: "11px"
-    }
-  }
-});
+// const useStyles = makeStyles({
+//   customTextField: {
+//     "& input::placeholder": {
+//       fontSize: "11px"
+//     }
+//   }
+// });
 
 const CreateHome = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [users, setUsers] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
@@ -57,7 +57,7 @@ const CreateHome = () => {
   };
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("http://localhost:3030/users")
       .then((res) => setUsers(res.data))
       .catch((err) => {
         setError(err.message);
@@ -66,9 +66,10 @@ const CreateHome = () => {
   const handleCount = (view: ViewTypes) => {
     setViewType(view);
   };
-
-  console.log("usersusers",users);
   
+console.log("usersdata",users);
+
+
   return (
     <div>
       <Grid container style={{ paddingLeft: "1.5rem" }}>
@@ -165,7 +166,7 @@ const CreateHome = () => {
                               placeholder="Search by Name.."
                               variant="outlined"
                               fullWidth
-                              size="small" classes={{ root: classes.customTextField }}
+                              size="small" 
                             />
                           )}
                         />
@@ -194,7 +195,7 @@ const CreateHome = () => {
                               placeholder="Search by Email.."
                               variant="outlined"
                               fullWidth
-                              size="small" classes={{ root: classes.customTextField }}
+                              size="small" 
                             />
                           )}
                         />
@@ -223,7 +224,7 @@ const CreateHome = () => {
                               placeholder="Search by Phone.."
                               variant="outlined"
                               fullWidth
-                              size="small" classes={{ root: classes.customTextField }}
+                              size="small" 
                             />
                           )}
                         />
