@@ -69,20 +69,13 @@ export const options3 = {
     15: { offset: 0.5 },
   },
 };
-const GraphView = () => {
+const GraphView = ({users}:any) => {
   return (
     <div>
       <Grid container style={{ marginRight: "1rem", marginTop: "1rem" }}>
         <Grid item xs={7}>
-          <Card
-            style={{
-              marginLeft: "1rem",
-              marginRight: "1rem",
-              padding: "1rem",
-              boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",
-              border: "none",
-            }}
-          >
+          <Card style={{marginLeft: "1rem",marginRight: "1rem",padding: "1rem",
+              boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",border: "none",}}>
             <Chart
               chartEvents={[
                 {
@@ -96,11 +89,8 @@ const GraphView = () => {
                   },
                 },
               ]}
-              chartType="GeoChart"
-              width="100%"
-              height="368px"
-              data={data}
-            />
+              chartType="GeoChart" width="100%" height="368px"
+              data={data}/>
           </Card>
         </Grid>
         <Grid item xs={4.7}>
@@ -138,12 +128,7 @@ const GraphView = () => {
               </Card>
             </Grid> */}
 
-          <Card
-            style={{
-              boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",
-              border: "none",
-            }}
-          >
+          <Card style={{boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",border: "none"}}>
             {/* <Chart
               chartType="PieChart"
               data={data1}
@@ -151,13 +136,8 @@ const GraphView = () => {
               width={"100%"}
               height={"300px"}
             /> */}
-            <Chart
-              chartType="PieChart"
-              data={data3}
-              options={options3}
-              width={"100%"}
-              height={"400px"}
-            />
+            <Chart chartType="PieChart" data={data3} options={options3}
+              width={"100%"} height={"400px"}/>
           </Card>
         </Grid>
 

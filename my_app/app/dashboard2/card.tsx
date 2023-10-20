@@ -17,23 +17,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"}fontWeight={"bold"}>
                     43
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     New Tickets
                   </Typography>
                 </Grid>
@@ -49,23 +38,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"}fontSize={"1.7rem"}color={"#374151"}fontWeight={"bold"}>
                     17
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"}fontWeight={"bold"}color={"#374151"}mb={1}>
                     Closed Today
                   </Typography>
                 </Grid>
@@ -81,23 +59,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     7
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"}fontWeight={"bold"} color={"#374151"} mb={1}>
                     New Replies
                   </Typography>
                 </Grid>
@@ -113,23 +80,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     27.3k
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"}fontSize={"0.6rem"}fontWeight={"bold"}color={"#374151"}mb={1}>
                     Followers
                   </Typography>
                 </Grid>
@@ -145,23 +101,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"}fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     $95
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     Daily earnings
                   </Typography>
                 </Grid>
@@ -177,23 +122,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     621
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     Products
                   </Typography>
                 </Grid>
@@ -214,23 +148,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     98
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"}fontWeight={"bold"} color={"#374151"} mb={1}>
                     New Tickets
                   </Typography>
                 </Grid>
@@ -246,23 +169,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"}fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     20
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"}fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     Closed Today
                   </Typography>
                 </Grid>
@@ -278,23 +190,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     14
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"}color={"#374151"} mb={1}>
                     New Replies
                   </Typography>
                 </Grid>
@@ -310,23 +211,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     43.1k
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"}fontWeight={"bold"}color={"#374151"} mb={1}>
                     Followers
                   </Typography>
                 </Grid>
@@ -342,23 +232,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     $76
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     Daily earnings
                   </Typography>
                 </Grid>
@@ -374,23 +253,12 @@ const CardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"}fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     432
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"}fontWeight={"bold"}color={"#374151"} mb={1}>
                     Products
                   </Typography>
                 </Grid>

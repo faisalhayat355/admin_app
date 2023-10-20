@@ -1,18 +1,18 @@
 "use client";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Grid, Paper } from "@mui/material/";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Chart } from "react-google-charts";
 
-export const data = [
+export const data1 = [
   ["Year", "Sal..", "Exp.."],
   ["2014", 500, 320],
   ["2015", 270, 260],
   ["2016", 360, 120],
   ["2017", 330, 140],
 ];
-
 export const data2 = [
   ["Month", "Sal..", "Exp.."],
   ["2014", 1300, 220],
@@ -20,14 +20,12 @@ export const data2 = [
   ["2016", 1260, 290],
   ["2017", 1030, 600],
 ];
-
 export const options = {
   chart: {
     title: "Company Performance",
     subtitle: "Sales, Expenses",
   },
 };
-
 export const dataPie = [
   ["Task", "Hours per Day"],
   ["Work", 11],
@@ -36,7 +34,6 @@ export const dataPie = [
   ["Watch TV", 2],
   ["Sleep", 7],
 ];
-
 export const areaData = [
   ["Year", "Sales", "Expenses"],
   ["2013", 1400, 400],
@@ -44,18 +41,15 @@ export const areaData = [
   ["2015", 660, 1320],
   ["2016", 1030, 540],
 ];
-
 export const areaOptions = {
   isStacked: true,
   height: 300,
   legend: { position: "top", maxLines: 3 },
   vAxis: { minValue: 0 },
 };
-
-export const pieoptions = {
+export const pieOptions = {
   title: "My Daily Activities",
 };
-
 export const barChartData = [
   ["City", "2010", "2020"],
   ["India", 8175000, 8008000],
@@ -64,7 +58,6 @@ export const barChartData = [
   ["Dubai", 2099000, 1953000],
   ["Indonesia", 1526000, 1517000],
 ];
-
 export const barChartOptions = {
   title: "Population of Largest U.S. Cities",
   chartArea: { width: "50%" },
@@ -74,7 +67,6 @@ export const barChartOptions = {
     minValue: 0,
   },
 };
-
 export const columnChartData = [
   ["Element", "Density", { role: "style" }],
   ["Copper", 16.94, "#b87333"], // RGB value
@@ -82,7 +74,6 @@ export const columnChartData = [
   ["Gold", 19.3, "gold"],
   ["Platinum", 41.45, "color: #e5e4e2"], // CSS-style declaration
 ];
-
 export const languageData = [
   ["Language", "Speakers (in millions)"],
   ["Assamese", 13],
@@ -108,7 +99,6 @@ export const languageData = [
   ["Telugu", 74],
   ["Urdu", 52],
 ];
-
 export const languageOptions = {
   title: "Indian Language Use",
   legend: "none",
@@ -122,15 +112,25 @@ export const languageOptions = {
 };
 
 const DashboardComponent = () => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState();
+  const Array = data.length;
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3030/users")
+      .then((res) => setData(res.data))
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, []);
+ 
   return (
-    <div >
-      <Box style={{ marginRight: "1.1rem",marginBottom:'1rem',marginLeft:'1rem',marginTop:'1.5rem' }}>
+    <div>
+      <Box style={{ marginRight: "1.1rem", marginBottom: "1rem",marginLeft: "1rem", marginTop: "1.5rem",}}>
         <Grid container spacing={1}>
           <Grid item xs={2}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -138,23 +138,13 @@ const DashboardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
-                    43
+                  <Typography textAlign={"center"} fontSize={"1.7rem"}color={"#374151"} fontWeight={"bold"}>
+                    {Array}
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"}
+                    fontWeight={"bold"} color={"#374151"} mb={1}>
                     New Tickets
                   </Typography>
                 </Grid>
@@ -162,10 +152,7 @@ const DashboardComponent = () => {
             </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -173,23 +160,13 @@ const DashboardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     17
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"}
+                    fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     Closed Today
                   </Typography>
                 </Grid>
@@ -197,10 +174,7 @@ const DashboardComponent = () => {
             </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"#84cc16"}>
@@ -208,23 +182,12 @@ const DashboardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     7
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     New Replies
                   </Typography>
                 </Grid>
@@ -243,23 +206,12 @@ const DashboardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     27.3k
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1} >
                     Followers
                   </Typography>
                 </Grid>
@@ -267,10 +219,7 @@ const DashboardComponent = () => {
             </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -278,23 +227,12 @@ const DashboardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"}fontSize={"1.7rem"} color={"#374151"}fontWeight={"bold"}>
                     $95
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1}>
                     Daily earnings
                   </Typography>
                 </Grid>
@@ -302,10 +240,8 @@ const DashboardComponent = () => {
             </Paper>
           </Grid>
           <Grid item xs={2}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0}
+              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Grid container>
                 <Grid item xs={12}>
                   <Typography textAlign={"right"} mr={1} color={"red"}>
@@ -313,23 +249,12 @@ const DashboardComponent = () => {
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"1.7rem"}
-                    color={"#374151"}
-                    fontWeight={"bold"}
-                  >
+                  <Typography textAlign={"center"} fontSize={"1.7rem"} color={"#374151"} fontWeight={"bold"}>
                     621
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    textAlign={"center"}
-                    fontSize={"0.6rem"}
-                    fontWeight={"bold"}
-                    color={"#374151"}
-                    mb={1}
-                  >
+                  <Typography textAlign={"center"} fontSize={"0.6rem"} fontWeight={"bold"} color={"#374151"} mb={1} >
                     Products
                   </Typography>
                 </Grid>
@@ -341,25 +266,17 @@ const DashboardComponent = () => {
       <Paper elevation={0} style={{ paddingBottom: "0.5rem" }}>
         <Grid container spacing={1} style={{ paddingLeft: "1rem" }}>
           <Grid item xs={2.3}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Grid container>
                 <Grid item xs={12}>
-                  <Typography style={{ marginTop: "1rem", fontSize: "0.8rem",marginLeft:'1rem' }}>
+                  <Typography
+                    style={{marginTop: "1rem", fontSize: "0.8rem", marginLeft: "1rem"}}>
                     Opportunity Count
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    fontSize={"1.5rem"}
-                    style={{
-                      marginTop: "3rem",
-                      textAlign: "center",
-                      marginBottom: "1.8rem",
-                    }}
-                  >
+                  <Typography fontSize={"1.7rem"}color={"#374151"} fontWeight={"bold"}
+                    style={{ marginTop: "3rem", textAlign: "center", marginBottom: "1.8rem", }}>
                     7656
                   </Typography>
                 </Grid>
@@ -367,32 +284,18 @@ const DashboardComponent = () => {
             </Paper>
           </Grid>
           <Grid item xs={2.4}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
-              <Chart chartType="Bar" height="150px" width="110%" data={data} />
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
+              <Chart chartType="Bar" height="150px" width="110%" data={data1} />
             </Paper>
           </Grid>
           <Grid item xs={2.3}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
               <Chart chartType="Bar" height="150px" width="110%" data={data2} />
             </Paper>
           </Grid>
           <Grid item xs={2.4}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
-              <Chart
-                chartType="PieChart"
-                height="150px"
-                width="100%"
-                data={dataPie}
-              />
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
+              <Chart chartType="PieChart" height="150px" width="100%" data={dataPie}/>
             </Paper>
           </Grid>
           <Grid item xs={2.4}>
@@ -402,25 +305,13 @@ const DashboardComponent = () => {
             >
               <Grid container>
                 <Grid item xs={12}>
-                  <Typography
-                    style={{
-                      marginTop: "1rem",
-                      marginLeft: "1rem",
-                      fontSize: "0.8rem",
-                    }}
-                  >
+                  <Typography style={{ marginTop: "1rem",marginLeft: "1rem",fontSize: "0.8rem",}}>
                     Revenue
                   </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography
-                    fontSize={"1.5rem"}
-                    style={{
-                      marginTop: "3rem",
-                      textAlign: "center",
-                      marginBottom: "1.8rem",
-                    }}
-                  >
+                  <Typography fontSize={"1.7rem"}color={"#374151"} fontWeight={"bold"}
+                    style={{ marginTop: "3rem", textAlign: "center",marginBottom: "1.8rem",}}>
                     $2bn
                   </Typography>
                 </Grid>
@@ -429,64 +320,28 @@ const DashboardComponent = () => {
           </Grid>
         </Grid>
       </Paper>
-
       <Paper elevation={0} style={{ marginTop: "0.5rem" }}>
         <Grid container spacing={1} style={{ paddingLeft: "1rem" }}>
           <Grid item xs={4.8}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
-              <Chart
-                chartType="AreaChart"
-                height="230px"
-                width="100%"
-                data={areaData}
-                options={options}
-              />
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
+              <Chart chartType="AreaChart" height="230px" width="100%" data={areaData} options={options} />
             </Paper>
           </Grid>
           <Grid item xs={4.7}>
-            <Paper
-              elevation={0}
-              style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-            >
-              <Chart
-                chartType="BarChart"
-                height="230px"
-                width="100%"
-                data={barChartData}
-                options={barChartOptions}
-              />
+            <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
+              <Chart chartType="BarChart" height="230px" width="100%" data={barChartData} options={barChartOptions}/>
             </Paper>
           </Grid>
           <Grid item xs={2.3}>
             <Grid container spacing={1}>
               <Grid item xs={12}>
-                <Paper
-                  elevation={0}
-                  style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-                >
-                  <Chart
-                    chartType="ColumnChart"
-                    height="111px"
-                    width="100%"
-                    data={columnChartData}
-                  />
+                <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
+                  <Chart chartType="ColumnChart" height="111px" width="100%" data={columnChartData}/>
                 </Paper>
               </Grid>
               <Grid item xs={12}>
-                <Paper
-                  elevation={0}
-                  style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}
-                >
-                  <Chart
-                    chartType="PieChart"
-                    data={languageData}
-                    options={languageOptions}
-                    height="110px"
-                    width="100%"
-                  />
+                <Paper elevation={0} style={{ boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px" }}>
+                  <Chart chartType="PieChart" data={languageData} options={languageOptions} height="110px" width="100%"/>
                 </Paper>
               </Grid>
             </Grid>

@@ -1,22 +1,13 @@
 "use client";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Link from "next/link";
+import { Grid, IconButton, Typography,Paper,Stack,Button,Menu,MenuItem,Autocomplete,InputBase,TextField,Tooltip} from "@mui/material";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import SearchIcon from "@mui/icons-material/Search";
-import { Grid, IconButton, Typography } from "@mui/material";
-import Autocomplete from "@mui/material/Autocomplete";
-import Button from "@mui/material/Button";
-import InputBase from "@mui/material/InputBase";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Tooltip from "@mui/material/Tooltip";
-import axios from "axios";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Case, Default, Switch } from "react-if";
 import { ViewTypes } from "../utility/view.type";
 import CalendarView from "./list/calendar.view";
@@ -39,25 +30,23 @@ const CreateHome = () => {
   // const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [users, setUsers] = useState ([]);
+  const [error, setError] = useState ([]);
   const [viewType, setViewType] = useState<ViewTypes>(ViewTypes.LIST);
   const [anchorElFilter, setAnchorElFilter] = useState(null);
   const filterOpen = Boolean(anchorElFilter);
   const filterhandleClick = (event) => {
     setAnchorElFilter(event.currentTarget);
   };
-  const filterhandleClose = () => {
-    setAnchorElFilter(null);
-  };
+  const filterhandleClose = () => { setAnchorElFilter(null)};
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget);};
   const handleClose = () => {
     setAnchorEl(null);
   };
   useEffect(() => {
-    axios
-      .get("http://localhost:3030/users")
+    axios .get("http://localhost:3030/users")
       .then((res) => setUsers(res.data))
       .catch((err) => {
         setError(err.message);
@@ -67,46 +56,21 @@ const CreateHome = () => {
     setViewType(view);
   };
   
-console.log("usersdata",users);
-
-
   return (
     <div>
       <Grid container style={{ paddingLeft: "1.5rem" }}>
-        <Grid
-          item
-          xs={11.7}
-          display={"flex"}
-          justifyContent={"flex-end"}
-          mt={2}
-        >
-          <Link
-            href={"/reports/create"}
-            passHref
-            style={{ textDecoration: "none" }}
-          >
+        <Grid item xs={11.7} display={"flex"} justifyContent={"flex-end"} mt={2}>
+          <Link href={"/reports/create"} passHref style={{ textDecoration: "none" }} >
             <Button variant="contained" size="small">
               Create
             </Button>
           </Link>
         </Grid>
         <Grid item xs={3.5}>
-          <Paper
-            component="form"
-            sx={{
-              p: "2px 4px",
-              display: "flex",
-              alignItems: "center",
-              width: 290,
-              height: 38,
-            }}
-          >
-            <InputBase
-              sx={{ ml: 1, flex: 1 }}
-              placeholder="Search here.."
-              style={{ fontSize: "0.8rem" }}
-              inputProps={{ "aria-label": "search google maps" }}
-            />
+          <Paper component="form"
+            sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: 290, height: 38}}>
+            <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Search here.."
+              style={{ fontSize: "0.8rem" }} inputProps={{ "aria-label": "search..." }}/>
             <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
               <SearchIcon fontSize="small" />
             </IconButton>
@@ -116,39 +80,20 @@ console.log("usersdata",users);
         <Grid item xs={5}>
           <Stack direction="row" spacing={1}>
             <Tooltip title="Filter">
-              <IconButton
-                aria-label="FilterListIcon"
-                id="basic-button"
-                aria-controls={filterOpen ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={filterOpen ? "true" : undefined}
-                onClick={filterhandleClick}
-              >
+              <IconButton aria-label="FilterListIcon"
+                id="basic-button" aria-controls={filterOpen ? "basic-menu" : undefined}
+                aria-haspopup="true" aria-expanded={filterOpen ? "true" : undefined}
+                onClick={filterhandleClick}>
                 <FilterListIcon fontSize="small" />
               </IconButton>
             </Tooltip>
 
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorElFilter}
-              open={filterOpen}
-              onClose={filterhandleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-              <Grid
-                container
-                style={{
-                  padding: "1rem",
-                }}
-              >
+            <Menu id="basic-menu" anchorEl={anchorElFilter} open={filterOpen} onClose={filterhandleClose}
+              MenuListProps={{"aria-labelledby": "basic-button" }}>
+              <Grid container style={{padding: "1rem"}}>
                 <Paper elevation={0} style={{ width: "45vh" }}>
                   <Grid item xs={12}>
-                    <Grid
-                      container
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
+                    <Grid container style={{ display: "flex", alignItems: "center" }}>
                       <Grid item xs={2}>
                         <Typography>Name</Typography>
                       </Grid>
@@ -156,28 +101,14 @@ console.log("usersdata",users);
                         <Typography>:</Typography>
                       </Grid>
                       <Grid item xs={9}>
-                        <Autocomplete
-                          id="free-solo-demo"
-                          freeSolo
-                          options={users?.map((option) => option.name)}
+                        <Autocomplete id="free-solo-demo"  freeSolo options={users?.map((option) => option.name)}
                           renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              placeholder="Search by Name.."
-                              variant="outlined"
-                              fullWidth
-                              size="small" 
-                            />
-                          )}
-                        />
+                            <TextField {...params} placeholder="Search by Name.." variant="outlined" fullWidth size="small"/>
+                          )}/>
                       </Grid>
                     </Grid>
 
-                    <Grid
-                      container
-                      style={{ display: "flex", alignItems: "center" }}
-                      mt={2}
-                    >
+                    <Grid container style={{ display: "flex", alignItems: "center" }} mt={2}>
                       <Grid item xs={2}>
                         <Typography>Email</Typography>
                       </Grid>
@@ -185,28 +116,14 @@ console.log("usersdata",users);
                         <Typography>:</Typography>
                       </Grid>
                       <Grid item xs={9}>
-                        <Autocomplete
-                          id="free-solo-demo"
-                          freeSolo
-                          options={users?.map((option) => option.email)}
+                        <Autocomplete id="free-solo-demo" freeSolo options={users?.map((option) => option.email)}
                           renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              placeholder="Search by Email.."
-                              variant="outlined"
-                              fullWidth
-                              size="small" 
-                            />
-                          )}
-                        />
+                            <TextField {...params} placeholder="Search by Email.."
+                              variant="outlined" fullWidth size="small"/>)}/>
                       </Grid>
                     </Grid>
 
-                    <Grid
-                      container
-                      style={{ display: "flex", alignItems: "center" }}
-                      mt={2}
-                    >
+                    <Grid container style={{ display: "flex", alignItems: "center" }} mt={2}>
                       <Grid item xs={2}>
                         <Typography>Phone</Typography>
                       </Grid>
@@ -219,15 +136,8 @@ console.log("usersdata",users);
                           freeSolo
                           options={users?.map((option) => option.phone)}
                           renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              placeholder="Search by Phone.."
-                              variant="outlined"
-                              fullWidth
-                              size="small" 
-                            />
-                          )}
-                        />
+                            <TextField {...params} placeholder="Search by Phone.." variant="outlined"
+                              fullWidth size="small"/>)}/>
                       </Grid>
                     </Grid>
 
@@ -236,21 +146,12 @@ console.log("usersdata",users);
                       <Grid item xs={6}>
                         <Grid container>
                           <Grid item xs={9.3}>
-                            <Button
-                              variant="contained"
-                              size="small"
-                              style={{ width: "16vh" }}
-                              onClick={filterhandleClose}
-                            >
+                            <Button variant="contained" size="small" style={{ width: "16vh" }} onClick={filterhandleClose}>
                               Cancel
                             </Button>
                           </Grid>
                           <Grid item xs={2.7}>
-                            <Button
-                              variant="contained"
-                              size="small"
-                              style={{ width: "16vh" }}
-                            >
+                            <Button variant="contained"size="small" style={{ width: "16vh" }}>
                               Save
                             </Button>
                           </Grid>
@@ -263,25 +164,12 @@ console.log("usersdata",users);
             </Menu>
             <Tooltip title="Import">
               <IconButton aria-label="download">
-                <FileDownloadIcon
-                  fontSize="small"
-                  id="basic-button"
-                  aria-controls={open ? "basic-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onClick={handleClick}
-                />
+                <FileDownloadIcon fontSize="small" id="basic-button" aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true" aria-expanded={open ? "true" : undefined} onClick={handleClick}/>
               </IconButton>
             </Tooltip>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
+            <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose}
+              MenuListProps={{ "aria-labelledby": "basic-button"}}>
               <MenuItem onClick={handleClose}>
                 <Typography fontSize={"0.8rem"}>CSV</Typography>
               </MenuItem>

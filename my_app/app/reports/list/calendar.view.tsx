@@ -7,9 +7,7 @@ const localizer = momentLocalizer(moment);
 
 
 const CalendarView = ({users}:any) => {
-
   const [events, setEvents] = useState([]);
-
   const calendarReports = users.map((users : any) => {
     return {
       title: users.name,
@@ -23,13 +21,8 @@ const CalendarView = ({users}:any) => {
   return (
     <Grid pt={1} container height={"75vh"}>
     <Grid item xs={12} px={2.5}>
-      <Calendar
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        defaultDate={moment().toDate()}
-        localizer={localizer}
-      />
+      <Calendar events={events}
+        startAccessor="start" endAccessor="end" defaultDate={moment().toDate()} localizer={localizer}/>
     </Grid>
   </Grid>
   )

@@ -1,19 +1,14 @@
 "use client";
 import { useState } from "react";
+import axios from "axios";
 import { Grid, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
-import axios from "axios";
 import Link from "next/link";
 
 const ReportCreate = () => {
   // const navigate = useNavigate();
-  const [inputData, setInputData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    address: "",
-  });
+  const [inputData, setInputData] = useState({name:"",email:"",mobile:"",address:"",});
   function handleSubmit(event:any) {
     event.preventDefault();
     axios

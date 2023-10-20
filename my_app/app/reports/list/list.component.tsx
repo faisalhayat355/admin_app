@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+import React, {useState} from "react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import { Box, Grid, IconButton, Pagination, Typography } from "@mui/material";
+import {Box, Grid, IconButton, Pagination, Typography} from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import ReportsInfo from "../info/info.component";
-import { PaginationHandler } from "../../utility/pagination";
+import {PaginationHandler} from "../../utility/pagination";
 
 const ListComponent = ({ users }: any) => {
   let [page, setPage] = useState(1);
@@ -17,7 +17,6 @@ const ListComponent = ({ users }: any) => {
     setPage(p);
     paginationHandler.jump(p);
   };
-
   return (
     <div style={{ paddingLeft: "1.5rem" }}>
       <Box mr={3} mt={2}>
